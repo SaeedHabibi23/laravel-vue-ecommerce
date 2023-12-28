@@ -1,16 +1,22 @@
 <script setup>
+import store from '@/store';
+import {ref, computed} from 'vue'
+
+const test = computed(()=> store.state.test)
 defineProps({
   msg: {
     type: String,
     required: true
   }
 })
+const count = ref()
 </script>
 
 <template>
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
-    <h3 class="text-danger">
+    {{ test }} 
+    <h3 class="text-info">
       You’ve successfully created a project with
       <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
       <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
